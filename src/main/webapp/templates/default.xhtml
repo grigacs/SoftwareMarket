@@ -12,16 +12,16 @@
 </h:head>
 <h:body>
     <div id="container">
+        <div id="login">
+            <form name="loginForm" method="POST" action="j_security_check">
+                <input  placeholder="username" type="text" name="j_username"  />
+                <input  placeholder="password" type="password" class="pass" name="j_password" />
+                <input type="submit" class="styled-button-8" value="Login"/>
+            </form>
+        </div>
         <div id="header">
             <div id="logo">
                 <span class="logo">Software</span><span class="text">Market</span>
-            </div>
-            <div id="login">
-                <form name="loginForm" method="POST" action="j_security_check">
-                        <input  placeholder="username" type="text" name="j_username"  />
-                        <input  placeholder="password" type="password" class="pass" name="j_password" />
-                        <input type="submit" class="styled-button-8" value="Login"/>
-                </form>
             </div>
             <div class="clear"></div>
         </div>
