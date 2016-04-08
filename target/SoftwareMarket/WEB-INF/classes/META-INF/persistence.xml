@@ -26,11 +26,23 @@
       <!-- The datasource is deployed as WEB-INF/SoftwareMarket-ds.xml, you
          can find it in the source at src/main/webapp/WEB-INF/SoftwareMarket-ds.xml -->
       <jta-data-source>java:jboss/datasources/SoftwareMarketDS</jta-data-source>
+      <class>entity.users.UsersEntity</class>
+      <class>entity.products.ProductEntity</class>
+      <class>entity.products.ProductCategoryEntity</class>
+      <class>entity.orders.FamousProductsEntity</class>
+      <class>entity.orders.OrderProductEntity</class>
+      <class>entity.admin.AdminEntity</class>
       <properties>
          <!-- Properties for Hibernate -->
          <property name="hibernate.hbm2ddl.auto" value="update" />
          <property name="hibernate.show_sql" value="true" />
          <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+         <property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/softwaremarket"/>
+         <property name="toplink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+         <property name="toplink.jdbc.user" value="root"/>
+         <property name="toplink.jdbc.password" value=""/>
+         <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/softwaremarket"/>
+         <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
       </properties>
    </persistence-unit>
 </persistence>

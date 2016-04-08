@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <h:outputScript library="js" name="jquery-1.12.3.min.js"/>
+    <h:outputScript library="js" name="gallery.js"/>
+</h:head>
+<h:body>
+    <div id="container">
+        <div id="header">
+            <div id="logo">
+                <span class="logo">Software</span><span class="text">Market</span>
+            </div>
+            <div id="login">
+                <form name="loginForm" method="POST" action="j_security_check">
+                        <input  placeholder="username" type="text" name="j_username"  />
+                        <input  placeholder="password" type="password" class="pass" name="j_password" />
+                        <input type="submit" class="styled-button-8" value="Login"/>
+                </form>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="navigation">
+            <ul>
+                <li>
+                    <h:link styleClass="link" value="Index" outcome="index" />
+                </li>
+                <li>
+                    <h:link styleClass="link" value="Products" outcome="products" />
+                </li>
+                <li>
+                    <h:link styleClass="link" value="About" outcome="about" />
+                </li>
+                <li>
+                    <h:link styleClass="link" value="Contact" outcome="contact" />
+                </li>
+            </ul>
+        </div>
+        <!-- <div id="slide">
+            <div>
+                <h:graphicImage library="images" name="1.jpg"/>
+            </div>
+            <div>
+                <h:graphicImage library="images" name="2.jpg"/>
+            </div>
+            <div>
+                <h:graphicImage library="images" name="3.jpg"/>
+            </div>
+        </div> !-->
+    <div id="content">
+        <ui:insert name="content">
+            []
+        </ui:insert>
+    </div>
+    <div id="footer">
+    </div>
+</div>
+
+</h:body>
+</html>
