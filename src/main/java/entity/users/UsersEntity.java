@@ -9,12 +9,12 @@ import java.sql.Date;
  */
 @Entity
 @Table(name = "users", schema = "softwaremarket")
-@NamedQueries(
+/*@NamedQueries(
         @NamedQuery(
                 name = "listUsers",
                 query = "select u from UsersEntity u"
         )
-)
+)*/
 public class UsersEntity implements Serializable {
     private int idUser;
     private String firstName;
