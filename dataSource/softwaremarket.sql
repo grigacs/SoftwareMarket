@@ -206,7 +206,7 @@ INSERT INTO `product_category` (`category_id`, `product_id`, `category_name`, `c
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `users`
+-- Tábla szerkezet ehhez a táblához `products`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -221,7 +221,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- A tábla adatainak kiíratása `users`
+-- A tábla adatainak kiíratása `products`
 --
 
 INSERT INTO `users` (`id_user`, `first_name`, `last_name`, `username`, `password`, `birth_date`, `sex`) VALUES

@@ -1,11 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
-</html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                template="templates/default.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+
+    <ui:define name="content">
+        <h:dataTable
+                id="userTable"
+                value="#{productList.list()}"
+                var="product"
+                styleClass="simpletablestyle">
+
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                <h:outputText value="#{product.productName}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Price</f:facet>
+                <h:outputText value="#{product.productPrice}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Version</f:facet>
+                <h:outputText value="#{product.productVersion}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Description</f:facet>
+                <h:outputText value="#{product.productDescription}" />
+            </h:column>
+        </h:dataTable>
+    </ui:define>
+</ui:composition>

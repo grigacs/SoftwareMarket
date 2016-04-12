@@ -8,7 +8,7 @@ import java.sql.Date;
  * Created by grigacs on 4/7/2016.
  */
 @Entity
-@Table(name = "users", schema = "softwaremarket")
+@Table(name = "products", schema = "softwaremarket")
 /*@NamedQueries(
         @NamedQuery(
                 name = "listUsers",
