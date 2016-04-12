@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                template="templates/default.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+
+    <ui:define name="content">
+        <h:dataTable
+                id="userTable"
+                value="#{userDao.list()}"
+                var="users"
+                styleClass="simpletablestyle">
+
+        <h:column>
+            <f:facet name="header">Name</f:facet>
+            <h:outputText value="#{users.productName}" />
+        </h:column>
+            <h:column>
+                <f:facet name="header">Price</f:facet>
+                <h:outputText value="#{users.productPrice}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Version</f:facet>
+                <h:outputText value="#{users.productVersion}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Description</f:facet>
+                <h:outputText value="#{users.productDescription}" />
+            </h:column>
+        </h:dataTable>
+    </ui:define>
+</ui:composition>

@@ -3,13 +3,14 @@ package entity.orders;
 import entity.products.ProductEntity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by grigacs on 4/7/2016.
  */
 @Entity
 @Table(name = "famous_products", schema = "softwaremarket")
-public class FamousProductsEntity {
+public class FamousProductsEntity implements Serializable {
     private int famousProductsId;
     private int productId;
     private int orderId;

@@ -3,13 +3,14 @@ package entity.admin;
 import entity.users.UsersEntity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by grigacs on 4/7/2016.
  */
 @Entity
 @Table(name = "admin", schema = "softwaremarket")
-public class AdminEntity {
+public class AdminEntity implements Serializable {
     private int idAdmin;
     private int idUser;
 

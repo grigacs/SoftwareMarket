@@ -3,6 +3,7 @@ package entity.orders;
 import entity.users.UsersEntity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
@@ -10,7 +11,7 @@ import java.sql.Date;
  */
 @Entity
 @Table(name = "order_product", schema = "softwaremarket")
-public class OrderProductEntity {
+public class OrderProductEntity implements Serializable {
     private int orderId;
     private int idUser;
     private Date orderDate;

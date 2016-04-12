@@ -1,13 +1,14 @@
 package entity.products;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by grigacs on 4/7/2016.
  */
 @Entity
 @Table(name = "product_category", schema = "softwaremarket")
-public class ProductCategoryEntity {
+public class ProductCategoryEntity implements Serializable {
     private int categoryId;
     private int productId;
     private String categoryName;

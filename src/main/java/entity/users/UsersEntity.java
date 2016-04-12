@@ -1,6 +1,7 @@
 package entity.users;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
@@ -8,19 +9,27 @@ import java.sql.Date;
  */
 @Entity
 @Table(name = "users", schema = "softwaremarket")
-public class UsersEntity {
+@NamedQueries(
+        @NamedQuery(
+                name = "listUsers",
+                query = "select u from UsersEntity u"
+        )
+)
+public class UsersEntity implements Serializable {
     private int idUser;
     private String firstName;
     private String lastName;
     private String username;
     private String password;
     private Date birthDate;
-    private Enum sex;
+
+    @Enumerated(EnumType.STRING)
+    private Sex sex;
 
     public UsersEntity() {
     }
 
-    public UsersEntity(String firstName, String lastName, String username, String password, Date birthDate, Enum sex) {
+    public UsersEntity(String firstName, String lastName, String username, String password, Date birthDate, Sex sex) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -96,7 +105,7 @@ public class UsersEntity {
         return sex;
     }
 
-    public void setSex(Enum sex) {
+    public void setSex(Sex sex) {
         this.sex = sex;
     }
 
@@ -137,3 +146,10 @@ public class UsersEntity {
                 + birthDate + "]";
     }
 }
+
+
+
+enum Sex{
+  FEMALE, MALE
+}
+
