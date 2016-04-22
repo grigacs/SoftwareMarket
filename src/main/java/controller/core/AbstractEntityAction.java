@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
-
+import javax.transaction.Transactional;
 
 import dao.base.GenericDAO;
 
@@ -56,7 +56,7 @@ public abstract class AbstractEntityAction<EntityType, IdentifierType extends Se
 		// Nothing to do here by default.
 	}
 	
-	//TODO WTF ? @Transactional
+	@Transactional
 	public String persist() {
 		if (null == id) {
 			getEntityDao().persist(entity);
@@ -76,7 +76,7 @@ public abstract class AbstractEntityAction<EntityType, IdentifierType extends Se
 		// Nothing to do here by default.
 	}
 	
-	//@Transactional
+	@Transactional
 	public void remove(IdentifierType identifier) {
 		EntityType entityToRemove = getEntityDao().findEntity(identifier);
 		beforeRemoving(entityToRemove);
