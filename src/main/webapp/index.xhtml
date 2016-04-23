@@ -1,15 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-                template="templates/default.xhtml"
-                xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                template="templates/defaultIndex.xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
                 xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 
     <ui:define name="content">
-        <div>
-
+        <div class="welcome">
+            <h1 class="welcomeU">WELCOME USER!</h1>
+            <div>Our store is more than just another average online retailer. We sell not only top quality products, but give our customers a positive online shopping experience. Forget about struggling to do everything at once: taking care of the family, running your business, walking your dog, cleaning the house, doing the shopping, etc. Purchase the goods you need every day or just like in a few clicks or taps, depending on the device you use to access the Internet. We work to make your life more enjoyable.</div>
         </div>
+
+        <div class="chart">
+        <ui:fragment rendered="#{not empty popular.productAll()}">
+
+            <script type="text/javascript" src="resources/js/newChartDesign.js"></script>
+
+            <p:chart styleClass="chartSize"
+            type="line"
+            model="#{chartJava.lineModel2}" responsive="true" />
+
+
+        </ui:fragment>
+        </div>
+            <div class="aboutT">
+                <h1>popular products</h1>
+            </div>
+            <ui:fragment rendered="#{not empty popular.product()}">
+        <ui:repeat value="#{popular.product()}" var="product">
+            <div class="wrapCurrent wrapCurrentPopular">
+                <div class="picturesCurrent">
+                    <h:graphicImage styleClass="pictureC"
+                                    value="resources/ProductPictures/#{product.productPicture}"/>
+                </div>
+                <div class="description">
+                    <div class="header">
+                        <div class="nameCurrent">
+                            <h:outputText value="#{product.productName}"/>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="descriptionCurrentPopular">
+                        <h:outputText value="#{product.productVersion}"/>
+                    </div>
+                </div>
+                <div class="PriceCurrent">
+                    <span>Price: $</span><h:outputText value="#{product.productPrice}"/>
+                </div>
+                <div class="name">
+                    <h:outputLink title="read more" styleClass="more readMore" value="products.xhtml?faces-redirect=true">
+                        <f:param name="id" value="#{product.productId}"/>
+                        <h:outputText value="READ MORE"/>
+                    </h:outputLink>
+                </div>
+            </div>
+        </ui:repeat>
+    </ui:fragment>
+        <ui:fragment rendered="#{empty popular.product()}">
+            <ui:repeat value="#{popular.productAll()}" var="product">
+                <div class="wrapCurrent wrapCurrentPopular">
+                    <div class="picturesCurrent">
+                        <h:graphicImage styleClass="pictureC"
+                                        value="resources/ProductPictures/#{product.productPicture}"/>
+                    </div>
+                    <div class="description">
+                        <div class="header">
+                            <div class="nameCurrent">
+                                <h:outputText value="#{product.productName}"/>
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="descriptionCurrentPopular">
+                            <h:outputText value="#{product.productVersion}"/>
+                        </div>
+                    </div>
+                    <div class="PriceCurrent">
+                        <span>Price: $</span><h:outputText value="#{product.productPrice}"/>
+                    </div>
+                    <div class="name">
+                        <h:outputLink title="read more" styleClass="more readMore" value="products.xhtml?faces-redirect=true">
+                            <f:param name="id" value="#{product.productId}"/>
+                            <h:outputText value="READ MORE"/>
+                        </h:outputLink>
+                    </div>
+                </div>
+            </ui:repeat>
+        </ui:fragment>
     </ui:define>
 </ui:composition>

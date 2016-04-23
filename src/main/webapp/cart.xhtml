@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                template="templates/default.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+
+    <ui:define name="content">
+        <div class="overlay">
+            <div class="popup">
+                <h2>Congratulation!</h2>
+                <a class="close" href="#"></a>
+                <div class="grapich"><h:graphicImage styleClass="pictureC cartPicP"
+                                     value="resources/images/check.png" /></div>
+                <div class="contentUP">
+                    Product is successful ordered <span>please check your email</span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h:panelGroup id="successCheck" rendered="#{cart.cartCount != 0}">
+                <div class="cartHeader"><h1>Cart Content</h1></div>
+                <div class="contunie">
+                    <div class="update">
+                        <!-- <h:form>
+                             <h:commandButton value="update" action="#{cart.update()}" />
+                         </h:form> -->
+                    </div>
+                    <div class="linkBack">
+                        <h:link outcome="products" styleClass="continueSH" value="Continue shopping..."/>
+                    </div>
+                    <div class="checkOut">
+                        <h:form>
+                            <h:commandButton value="Check Out"  styleClass="check" id="CheckOut"
+                                             action="#{add.addtoBase()}">
+                                <f:ajax execute="form" render="@none" />
+                            </h:commandButton>
+                        </h:form>
+                    </div>
+                </div>
+                <div class="contentDes">
+                    <div class="pic">
+                        <h:outputText value="Product"/>
+                    </div>
+                    <div class="nameDes">
+                        <h:outputText value="Name"/>
+                    </div>
+                    <div class="priceDes">
+                        <h:outputText value="Price"/>
+                    </div>
+                    <div class="quantityDes">
+                        <h:outputText value="Quantity"/>
+                    </div>
+                    <div class="deleteDes">
+                        <h:outputText value="Delete"/>
+                    </div>
+                    <div class="EditDes">
+                        <h:outputText value="Edit"/>
+                    </div>
+                </div>
+                <h:form id="falsePress">
+                    <ui:repeat var="i" value="#{cart.cart}">
+                        <div class="wrapCurrentCart">
+                            <div class="picturesCurrent cartPic">
+                                <h:graphicImage styleClass="pictureC cartPicP"
+                                                value="resources/ProductPictures/#{i.p.productPicture}"/>
+                            </div>
+                            <div class="header headerCart">
+                                <h:outputText value="#{i.p.productName}"/>
+                            </div>
+                            <div class="priceCart">
+                                <span>$</span><h:outputText value="#{i.p.productPrice}"/>
+                            </div>
+                            <div class="quantityCart">
+                                <h:inputText name="myInp" styleClass="qInput" id="qInput" binding="#{input}" value="#{i.quantity}"/>
+                            </div>
+                            <div class="remove">
+                                <h:commandLink action="#{cart.remove(i)}" >
+                                    <div class="icon-trash">
+                                        <div class="trash-lid"></div>
+                                        <div class="trash-container"></div>
+                                        <div class="trash-line-1"></div>
+                                        <div class="trash-line-2"></div>
+                                        <div class="trash-line-3"></div>
+                                    </div>
+                                </h:commandLink>
+                            </div>
+                            <div class="edit">
+                                <h:commandLink action="#{cart.addMore(input.value,i.p)}" >
+                                    <f:ajax execute="falsePress" render="cartSize"/>
+                                    <h:graphicImage styleClass="sizeEdit" value="resources/images/edit.png" />
+                                </h:commandLink>
+                            </div>
+
+                        </div>
+                    </ui:repeat>
+                    <div class="wrapper">
+                        <h:outputText styleClass="totalPrice" value="Total Price Is: $#{cart.total}"/>
+                    </div>
+                </h:form>
+            </h:panelGroup>
+            <h:panelGroup rendered="#{cart.cartCount == 0}">
+                <div class="emptyCart">
+                    <h:graphicImage styleClass="emptyCartPic" value="resources/images/exclamation.png"/>
+                    <h:outputText styleClass="textCart" value="Your cart is empty"/>
+                </div>
+            </h:panelGroup>
+        </div>
+        <div class="edited">EDITED</div>
+    </ui:define>
+</ui:composition>

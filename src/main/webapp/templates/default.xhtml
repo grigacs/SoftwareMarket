@@ -9,6 +9,12 @@
     <h:outputStylesheet library="css" name="style.css"/>
     <h:outputScript library="js" name="jquery-1.12.3.min.js"/>
     <h:outputScript library="js" name="gallery.js"/>
+    <h:outputScript library="js" name="cart.js"/>
+    <h:outputScript library="js" name="checkout.js"/>
+    <h:outputScript name="primefaces.js" library="primefaces" />
+    <h:outputStylesheet name="primefaces.css" library="primefaces" />
+    <h:outputScript name="charts/charts.js" library="primefaces" />
+    <h:outputStylesheet name="charts/charts.css" library="primefaces" />
 </h:head>
 <h:body>
     <div id="container">
@@ -23,6 +29,17 @@
         <div id="header">
             <div id="logo">
                 <span class="logo">Software</span><span class="text">Market</span>
+            </div>
+            <div class="addCartHeader">
+                <h:outputLink title="Show my cart" styleClass="cart"  value="cart.xhtml?faces-redirect=true">
+                    <div class="icon-cart bigCart">
+                        <div class="cart-line-1"></div>
+                        <div class="cart-line-2"></div>
+                        <div class="cart-line-3"></div>
+                        <div class="cart-wheel"></div>
+                    </div>
+                </h:outputLink>
+                <h:outputText name="cartSize" id="cartSize" styleClass="cartSize" value="#{cart.cartCount}" />
             </div>
             <div class="clear"></div>
         </div>
@@ -42,25 +59,14 @@
                 </li>
             </ul>
         </div>
-        <!-- <div id="slide">
-            <div>
-                <h:graphicImage library="images" name="1.jpg"/>
-            </div>
-            <div>
-                <h:graphicImage library="images" name="2.jpg"/>
-            </div>
-            <div>
-                <h:graphicImage library="images" name="3.jpg"/>
-            </div>
-        </div> !-->
-    <div id="content">
-        <ui:insert name="content">
-            []
-        </ui:insert>
+        <div id="content">
+            <ui:insert name="content">
+                []
+            </ui:insert>
+
+        </div>
     </div>
     <div id="footer">
     </div>
-</div>
-
 </h:body>
 </html>

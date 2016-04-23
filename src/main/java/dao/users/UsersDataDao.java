@@ -1,7 +1,6 @@
 package dao.users;
 
 import entity.products.ProductEntity;
-import entity.users.UsersEntity;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;

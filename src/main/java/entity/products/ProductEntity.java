@@ -17,12 +17,13 @@ public class ProductEntity implements Serializable {
     private String productDescription;
 
 
-    public ProductEntity(String productName, String productPicture, double productPrice, String productVersion, String productDescription) {
+    public ProductEntity(String productName, String productPicture, double productPrice, String productVersion, String productDescription, int productId) {
         this.productName = productName;
         this.productPicture = productPicture;
         this.productPrice = productPrice;
         this.productVersion = productVersion;
         this.productDescription = productDescription;
+        this.productId = productId;
     }
 
     public ProductEntity() {
@@ -121,4 +122,6 @@ public class ProductEntity implements Serializable {
         result = 31 * result + (productDescription != null ? productDescription.hashCode() : 0);
         return result;
     }
+
+
 }

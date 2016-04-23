@@ -22,14 +22,12 @@ public class UsersEntity implements Serializable {
     private String username;
     private String password;
     private Date birthDate;
-
-    @Enumerated(EnumType.STRING)
-    private Sex sex;
+    private String sex;
 
     public UsersEntity() {
     }
 
-    public UsersEntity(String firstName, String lastName, String username, String password, Date birthDate, Sex sex) {
+    public UsersEntity(String firstName, String lastName, String username, String password, Date birthDate, String sex) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -101,11 +99,11 @@ public class UsersEntity implements Serializable {
 
     @Basic
     @Column(name = "sex")
-    public Enum getSex() {
+    public String getSex() {
         return sex;
     }
 
-    public void setSex(Sex sex) {
+    public void setSex(String sex) {
         this.sex = sex;
     }
 
@@ -147,9 +145,4 @@ public class UsersEntity implements Serializable {
     }
 }
 
-
-
-enum Sex{
-  FEMALE, MALE
-}
 
