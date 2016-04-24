@@ -98,5 +98,10 @@ public abstract class AbstractEntityAction<EntityType, IdentifierType extends Se
 	public EntityType getEntity() {
 		return entity;
 	}
+	
+	public void setEntity(EntityType entity) {
+		this.entity = entity;
+	}
+
 
 }

@@ -184,7 +184,7 @@
 		<dependency>
 			<groupId>org.jboss.spec.javax.transaction</groupId>
 			<artifactId>jboss-transaction-api_1.2_spec</artifactId>
-			</dependency>
+		</dependency>
 
 
 
@@ -202,7 +202,14 @@
 			<artifactId>arquillian-protocol-servlet</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<!-- string utils -->
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.0</version>
+		</dependency>
 
+	
 	</dependencies>
 
 	<build>

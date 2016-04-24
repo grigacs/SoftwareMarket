@@ -34,13 +34,20 @@ public class UsersEntity implements Serializable {
 	public UsersEntity() {
 	}
 
-	public UsersEntity(String firstName, String lastName, String username, String password, Date birthDate, Sex sex) {
+	public UsersEntity(String firstName, String lastName, String username, String password, Date birthDate,
+			Boolean sex) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.username = username;
 		this.password = password;
 		this.birthDate = birthDate;
-		this.sex = sex;
+
+		if (sex) {
+			this.sex = Sex.MALE;
+		} else {
+			this.sex = Sex.FEMALE;
+		}
+
 	}
 
 	@Id
