@@ -13,7 +13,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 import org.apache.commons.lang3.StringUtils;
-import java.util.Date;
+import java.sql.Date;
 import controller.user.UserAction;
 import dao.users.UsersDataDao;
 import entity.users.UsersEntity;
@@ -76,7 +76,7 @@ public class LoginHelper implements Serializable {
 			return;
 		}
 		
-		user = new UsersEntity(firstName,lastName,userName,password,new java.sql.Date(new Date().getTime()),true);
+		user = new UsersEntity(firstName,lastName,userName,password,birthDate,true);
 		userAction.setEntity(user);
 		userAction.persist();
 		userName = null;
