@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:body>
+		<h:form id="loginForm">
+			<p:outputPanel id="loginPanel" style="margin:0px auto;">
+				<p:growl id="growlMsg" />
+				<h:panelGrid columns="2" style="margin:10px auto;" cellpadding="5">
+					<f:facet name="header">
+						<h:outputText value="Bejelentkezés" />
+				    </f:facet>
+				    
+					<p:outputLabel value="Felhasználónév:" for="name"/>
+					<p:inputText id="name" value="#{loginHelper.userName}" required="true"/>
+					
+					<p:outputLabel value="Jelszó:" for="pass"/>
+					<p:password id="pass" value="#{loginHelper.password}" required="true"/>
+				</h:panelGrid>
+
+				<h:panelGrid columns="1" style="margin:10px auto;" cellpadding="5">
+					<p:commandButton id="login" value="Belépés" icon="ui-icon-check" validateClient="true" ajax="true"
+						actionListener="#{loginHelper.login()}"
+						/>
+				</h:panelGrid>
+			</p:outputPanel>
+		</h:form>
+	</h:body>
+</html>
