@@ -8,6 +8,7 @@
       xmlns:p="http://primefaces.org/ui">
 <h:head>
     <h:outputStylesheet library="css" name="style.css"/>
+    <h:outputStylesheet library="css" name="register.css"/>
     <h:outputScript library="js" name="jquery-1.12.3.min.js"/>
     <h:outputScript library="js" name="gallery.js"/>
     <h:outputScript library="js" name="cart.js"/>
@@ -19,45 +20,9 @@
 </h:head>
 <h:body>
     <div id="container">
-        <div id="loginDiv">
-            <ui:fragment rendered="#{empty loginHelper.user}">
-                <h:link styleClass="reg" value="Register" outcome="register"/>
-                <h:form id="loginForm">
-
-
-                    <p:inputText id="name" value="#{loginHelper.userName}" placeholder="Username" required="true"/>
-                    <p:password id="pass" value="#{loginHelper.password}" placeholder="Password" styleClass="pass"
-                                required="true"/>
-                    <p:commandButton id="login" value="Login"  styleClass="ui-priority-primary styled-button-8"
-                                     validateClient="true"
-                                     actionListener="#{loginHelper.login()}"/>
-
-
-                </h:form>
-            </ui:fragment>
-            <h:form id="logoutForm">
-                <ui:fragment rendered="#{not empty loginHelper.user}">
-                    <p:commandButton id="logout" value="Logout"   styleClass="ui-priority-primary styled-button-8"
-                                     validateClient="true"
-                                     actionListener="#{loginHelper.logout()}"/>
-                </ui:fragment>
-            </h:form>
-        </div>
         <div id="header">
             <div id="logo">
                 <span class="logo">Software</span><span class="text">Market</span>
-            </div>
-            <div class="addCartHeader">
-                    <h:outputLink title="Show my cart" styleClass="cart"
-                                  value="cart.xhtml?faces-redirect=true">
-                        <div class="icon-cart bigCart">
-                            <div class="cart-line-1"></div>
-                            <div class="cart-line-2"></div>
-                            <div class="cart-line-3"></div>
-                            <div class="cart-wheel"></div>
-                        </div>
-                    </h:outputLink>
-                    <h:outputText name="cartSize" id="cartSize" styleClass="cartSize" value="#{cart.cartCount}"/>
             </div>
             <div class="clear"></div>
         </div>

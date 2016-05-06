@@ -25,6 +25,8 @@ $(document).ready(function () {
     var imageHeight = $( ".sizeGallery" ).height();
     $( "#slideshow" ).height(imageHeight);
 
+
+
 });
 
 $( window ).resize(function() {

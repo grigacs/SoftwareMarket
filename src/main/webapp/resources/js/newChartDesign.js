@@ -1,8 +1,10 @@
 $(document).ready(function () {
 
-    var numProductsInCart = document.getElementById("cartSize").innerHTML;
-    if (numProductsInCart != "0") {
-        document.getElementById("cartSize").style.color = "rgb(52, 73, 94)";
+    if (document.getElementById("cartSize") != null) {
+        var numProductsInCart = document.getElementById("cartSize").innerHTML;
+        if (numProductsInCart != "0") {
+            document.getElementById("cartSize").style.color = "rgb(52, 73, 94)";
+        }
     }
 
 });

@@ -16,6 +16,12 @@ import java.sql.Date;
         )
 )*/
 public class UsersEntity implements Serializable {
+
+
+    public static class A {
+        public static final String USERNAME = "username";
+    }
+
     private int idUser;
     private String firstName;
     private String lastName;

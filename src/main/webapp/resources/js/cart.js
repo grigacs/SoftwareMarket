@@ -3,37 +3,39 @@
  */
 $(document).ready(function () {
 
-    var numProductsInCart = document.getElementById("cartSize").innerHTML;
-    if (numProductsInCart != "0") {
-        document.getElementById("cartSize").style.color = "rgb(52, 73, 94)";
-    }
+    if (document.getElementById("cartSize") != null) {
+        var numProductsInCart = document.getElementById("cartSize").innerHTML;
+        if (numProductsInCart != "0") {
+            document.getElementById("cartSize").style.color = "rgb(52, 73, 94)";
+        }
 
-    $(".addCart").click(function () {
-        document.getElementById("cartSize").style.color = "rgb(52, 73, 94)";
-    });
-
-
-    jsf.ajax.addOnEvent(foo);
+        $(".addCart").click(function () {
+            document.getElementById("cartSize").style.color = "rgb(52, 73, 94)";
+        });
 
 
-    function foo(data) {
-        var ajaxStatus = data.status; // Can be "begin", "complete" and "success".
+        jsf.ajax.addOnEvent(foo);
 
-        switch (ajaxStatus) {
-            case "begin": // Right before sending ajax request.
-                break;
 
-            case "complete": // Right after receiving ajax response.
-                break;
+        function foo(data) {
+            var ajaxStatus = data.status; // Can be "begin", "complete" and "success".
 
-            case "success": // When ajax response is successfully processed.
-                document.getElementById("cartSize").style.color = "rgb(52, 73, 94)";
-                inputValue = [];
-                var numItems = $('.qInput').length;
-                for(var i=0;i<numItems;i++) {
-                    inputValue.push(document.getElementsByClassName("qInput")[i].value);
-                }
-                break;
+            switch (ajaxStatus) {
+                case "begin": // Right before sending ajax request.
+                    break;
+
+                case "complete": // Right after receiving ajax response.
+                    break;
+
+                case "success": // When ajax response is successfully processed.
+                    document.getElementById("cartSize").style.color = "rgb(52, 73, 94)";
+                    inputValue = [];
+                    var numItems = $('.qInput').length;
+                    for (var i = 0; i < numItems; i++) {
+                        inputValue.push(document.getElementsByClassName("qInput")[i].value);
+                    }
+                    break;
+            }
         }
     }
 

@@ -1,7 +1,9 @@
 package ui;
 
-import java.io.Serializable;
-
+import controller.user.UserAction;
+import dao.users.UsersDataDao;
+import entity.users.UsersEntity;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
@@ -9,14 +11,9 @@ import javax.faces.application.FacesMessage.Severity;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-
-import org.apache.commons.lang3.StringUtils;
+import java.io.IOException;
+import java.io.Serializable;
 import java.sql.Date;
-import controller.user.UserAction;
-import dao.users.UsersDataDao;
-import entity.users.UsersEntity;
 
 @Named
 @SessionScoped
@@ -43,7 +40,7 @@ public class LoginHelper implements Serializable {
 	// valami navigator kellene ida 
 	
 
-	public void login() {
+	public void login() throws IOException {
 		if (StringUtils.isBlank(userName) || StringUtils.isBlank(password)) {
 			addMsg(FacesMessage.SEVERITY_ERROR, "A felhasználónév és jelszó nem lehet üres!");
 			return;
@@ -62,10 +59,11 @@ public class LoginHelper implements Serializable {
 		userName = null;
 		password = null;
 		addMsg(FacesMessage.SEVERITY_INFO, "Üdv, " + user.getUsername() + "!");
-		//átirányítás
+
+		FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml?faces-redirect=true");
 	}
 	
-	public void register() {
+	public void register() throws IOException {
 		if (StringUtils.isBlank(userName) || StringUtils.isBlank(password)) {
 			addMsg(FacesMessage.SEVERITY_ERROR, "A felhasználónév és jelszó nem lehet üres!");
 			return;
@@ -76,20 +74,27 @@ public class LoginHelper implements Serializable {
 			return;
 		}
 		
-		user = new UsersEntity(firstName,lastName,userName,password,birthDate,true);
+		user = new UsersEntity(firstName,lastName,userName,password,birthDate,"female");
 		userAction.setEntity(user);
 		userAction.persist();
 		userName = null;
 		password = null;
 	
 		addMsg(FacesMessage.SEVERITY_INFO, "Üdv, " + user.getUsername() + "!");
-	//átirányítás
+
+		FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml?faces-redirect=true");
+
+	}
+
+	public String welcome(){
+		return  user.getUsername().toString();
 	}
 	
-	public void logout(){
+	public void logout() throws IOException {
 		userName = null;
 		password = null;
 		user = null;
+		FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml?faces-redirect=true");
 	}
 	
 	public boolean isLogined(){

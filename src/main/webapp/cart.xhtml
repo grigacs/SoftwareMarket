@@ -31,14 +31,21 @@
                     <div class="linkBack">
                         <h:link outcome="products" styleClass="continueSH" value="Continue shopping..."/>
                     </div>
+                    <ui:fragment rendered="#{not empty loginHelper.user}">
                     <div class="checkOut">
-                        <h:form>
-                            <h:commandButton value="Check Out"  styleClass="check" id="CheckOut"
-                                             action="#{add.addtoBase()}">
-                                <f:ajax execute="form" render="@none" />
-                            </h:commandButton>
-                        </h:form>
+                            <h:form>
+                                <h:commandButton value="Check Out"  styleClass="check" id="CheckOut"
+                                                 action="#{add.addtoBase()}">
+                                    <f:ajax execute="form" render="@none" />
+                                </h:commandButton>
+                            </h:form>
                     </div>
+                    </ui:fragment>
+                    <ui:fragment rendered="#{empty loginHelper.user}">
+                        <div class="backG">
+                            <h:outputText  value="Need to login to buy"/>
+                        </div>
+                    </ui:fragment>
                 </div>
                 <div class="contentDes">
                     <div class="pic">
@@ -90,6 +97,7 @@
                             <div class="edit">
                                 <h:commandLink action="#{cart.addMore(input.value,i.p)}" >
                                     <f:ajax execute="falsePress" render="cartSize"/>
+                                    <f:ajax execute="falsePress" render="@form"/>
                                     <h:graphicImage styleClass="sizeEdit" value="resources/images/edit.png" />
                                 </h:commandLink>
                             </div>
@@ -97,7 +105,7 @@
                         </div>
                     </ui:repeat>
                     <div class="wrapper">
-                        <h:outputText styleClass="totalPrice" value="Total Price Is: $#{cart.total}"/>
+                        <h:outputText styleClass="totalPrice price" name="price" id="price" value="Total Price Is: $#{cart.total}"/>
                     </div>
                 </h:form>
             </h:panelGroup>

@@ -11,20 +11,26 @@ $(document).ready(function () {
     $(".close").click(function () {
         $(".overlay").hide();
         window.location.href = "products.xhtml";
-        setTimeout(function(){ $("#successCheck").show(); }, 2000);
+        setTimeout(function () {
+            $("#successCheck").show();
+        }, 2000);
     });
 
 
     $(".icon-cart").click(function () {
         $(".popup2").fadeIn(1000);
-        setTimeout(function(){ $( ".popup2" ).fadeOut( 1000, function() {
-            // Animation complete.
-        }); }, 1500);
+        setTimeout(function () {
+            $(".popup2").fadeOut(1000, function () {
+                // Animation complete.
+            });
+        }, 1500);
     });
 
-    var numProductsInCart = document.getElementById("cartSize").innerHTML;
-    if (numProductsInCart != "0") {
-        document.getElementById("cartSize").style.color = "rgb(52, 73, 94)";
+    if (document.getElementById("cartSize") != null) {
+        var numProductsInCart = document.getElementById("cartSize").innerHTML;
+        if (numProductsInCart != "0") {
+            document.getElementById("cartSize").style.color = "rgb(52, 73, 94)";
+        }
     }
 });
 

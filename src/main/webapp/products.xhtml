@@ -72,16 +72,15 @@
                     </div>
                     <div class="addCart">
                         <h:form id="form">
-
-                            <h:commandLink title="Add to cart" styleClass="cart" action="#{cart.addtoCart(product)}">
-                                <f:ajax execute="form" render="cartSize"/>
-                                <div class="icon-cart">
-                                    <div class="cart-line-1"></div>
-                                    <div class="cart-line-2"></div>
-                                    <div class="cart-line-3"></div>
-                                    <div class="cart-wheel"></div>
-                                </div>
-                            </h:commandLink>
+                                <h:commandLink title="Add to cart" styleClass="cart" action="#{cart.addtoCart(product)}">
+                                    <f:ajax execute="formApplications" render="cartSize"/>
+                                    <div class="icon-cart">
+                                        <div class="cart-line-1"></div>
+                                        <div class="cart-line-2"></div>
+                                        <div class="cart-line-3"></div>
+                                        <div class="cart-wheel"></div>
+                                    </div>
+                                </h:commandLink>
                         </h:form>
                     </div>
                     <div class="clear"></div>
@@ -116,8 +115,8 @@
                         <div class="addCartCurrent">
                             <h:form id="addItem">
                             <div class="alignButon">
-                                <h:commandLink styleClass="addCartC" action="products.xhtml?faces-redirect=true"  actionListener="#{cart.addtoCart(currentProduct)}">
-                                    <!--<f:param name="curr" value="#{cart.addtoCart(currentProduct)}"/> -->
+                                <!--<h:commandLink styleClass="addCartC" action="products.xhtml?faces-redirect=true"  actionListener="#{cart.addtoCart(currentProduct)}">
+                                    <f:param name="curr" value="#{cart.addtoCart(currentProduct)}"/>
                                     <f:ajax execute="addItem" render="cartSize"/>
                                     <div class="icon-cart cart-left">
                                         <div class="cart-line-1"></div>
@@ -126,7 +125,17 @@
                                         <div class="cart-wheel"></div>
                                     </div>
                                     <h:outputText styleClass="add" value="ADD TO CART"/>
-                                </h:commandLink>
+                                </h:commandLink> -->
+
+                                    <h:commandLink title="Add to cart" styleClass="cart" action="#{cart.addtoCart(product)}">
+                                        <f:ajax execute="formApplications" render="cartSize"/>
+                                        <div class="icon-cart">
+                                            <div class="cart-line-1"></div>
+                                            <div class="cart-line-2"></div>
+                                            <div class="cart-line-3"></div>
+                                            <div class="cart-wheel"></div>
+                                        </div>
+                                    </h:commandLink>
                             </div>
                         </h:form>
                         </div>

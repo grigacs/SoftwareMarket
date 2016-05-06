@@ -83,8 +83,10 @@ public class ShoppingCart implements Serializable {
 
     int curr = 0;
     String currName = null;
-
+    List<Integer> q = new ArrayList<Integer>();
+    int thisP =0;
     public void addMore(int Quantity, ProductEntity p) {
+
         if (Quantity != 0 && Quantity == (int) Quantity) {
             for (Item item : cart) {
                 LOGGER.info(p.getProductName() + " " + Quantity + " " + cart.size() + " " + cartSize + " " + getCartCount());
@@ -93,9 +95,10 @@ public class ShoppingCart implements Serializable {
                         if (curr == 0)
                             item.setAllquantity(item.getAllquantity() + (Quantity - curr) - 1);
                         else if (item.getP().getProductName().equals(currName)) {
+
                             item.setAllquantity(item.getAllquantity() + (Quantity - curr));
                         } else {
-                            item.setAllquantity(Quantity + curr);
+                            item.setAllquantity(Quantity + item.getAllquantity()-1);
                         }
                     } else {
                         item.setAllquantity(Quantity);
@@ -106,6 +109,7 @@ public class ShoppingCart implements Serializable {
                         curr = item.getQuantity();
                         currName = item.getP().getProductName();
                     }
+
                 }
             }
         }
