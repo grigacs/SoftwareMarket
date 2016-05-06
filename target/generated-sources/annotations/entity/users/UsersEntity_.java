@@ -13,7 +13,7 @@ public abstract class UsersEntity_ {
 	public static volatile SingularAttribute<UsersEntity, String> firstName;
 	public static volatile SingularAttribute<UsersEntity, String> lastName;
 	public static volatile SingularAttribute<UsersEntity, String> password;
-	public static volatile SingularAttribute<UsersEntity, Enum> sex;
+	public static volatile SingularAttribute<UsersEntity, String> sex;
 	public static volatile SingularAttribute<UsersEntity, Date> birthDate;
 	public static volatile SingularAttribute<UsersEntity, String> username;
 

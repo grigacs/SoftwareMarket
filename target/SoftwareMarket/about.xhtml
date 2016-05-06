@@ -1,11 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
-</html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                template="templates/defaultSome.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+
+    <ui:define name="content">
+        <div class="aboutContent">
+            <div>
+                <div class="aboutT">
+                    <h1>ABOUT US</h1>
+                </div>
+                <div class="aboutText">
+                    <h2>CATERING TO YOUR REQUIREMENTS, HANDLING YOUR NEEDS WITH CARE</h2>
+                    <p>Our store is more than just another average online retailer.
+                        We sell not only top quality products,
+                        but give our customers a positive online shopping experience.
+                        Forget about struggling to do everything at once:
+                        taking care of the family, running your business,
+                        walking your dog, cleaning the house, doing the shopping, etc.
+                        Purchase the goods you need every day or just
+                        like in a few clicks or taps, depending on the device you use to
+                        access the Internet.
+                        We work to make your life more enjoyable.</p>
+                </div>
+            </div>
+            <div class="aboutPack">
+                <div class="aboutP">
+                    <h1><h:outputText value="#{about.size()}"/></h1>
+                    <p>Products available</p>
+                </div>
+                <div class="aboutP">
+                    <h1>81%</h1>
+                    <p>Clients come back</p>
+                </div>
+                <div class="aboutP">
+                    <h1><h:outputText value="#{about.sizeMember()}"/></h1>
+                    <p>Site members</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="event">
+                <h1>STORE EVENTS</h1>
+            </div>
+            <div class="icoPack">
+                <div class="aboutIco">
+                    <h:graphicImage styleClass="aboutSize" value="resources/images/interface.png"/>
+                    <p class="titlePE">For convenience of choice</p>
+                    <p>We think about the convenience of your choice.
+                        Our products are supplied with star rating that
+                        should help hesitant buyers to take a decision.
+                        What’s more, you can search our site if you know exactly
+                        what you are looking for or use a bunch of different
+                        filters that will considerably save your time and
+                        efforts.</p>
+                </div>
+                <div class="aboutIco">
+                    <h:graphicImage styleClass="aboutSize" value="resources/images/transport.png"/>
+                    <p class="titlePE">Delivery to all regions</p>
+                    <p>We deliver our goods worldwide. No matter where you live,
+                        your order will be shipped in time and delivered right
+                        to your door or to any other location you have stated.
+                        The packages are handled with utmost care, so the ordered products
+                        will be handed to you safe and sound, just like you expect them to be.</p>
+                </div>
+                <div class="aboutIco">
+                    <h:graphicImage styleClass="aboutSize" value="resources/images/like.png"/>
+                    <p class="titlePE">The highest quality of products</p>
+                    <p>We guarantee the highest quality of the products we sell.
+                        Several decades of successful operation and millions of happy
+                        customers let us feel certain about that. Besides, all items we
+                        sell pass thorough quality control, so no characteristics mismatch
+                        can escape the eye of our professionals.</p>
+                </div>
+            </div>
+            <div class="ourTeam">
+                <h1>OUR TEAM</h1>
+            </div>
+            <div class="ourTeamPicPack">
+                <h:graphicImage styleClass="aboutSizeP" value="resources/images/team-1.jpg"/>
+                <h:graphicImage styleClass="aboutSizeP" value="resources/images/team-2.jpg"/>
+                <h:graphicImage styleClass="aboutSizeP" value="resources/images/team-3.jpg"/>
+            </div>
+        </div>
+    </ui:define>
+</ui:composition>

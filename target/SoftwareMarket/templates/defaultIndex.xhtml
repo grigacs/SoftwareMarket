@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <h:outputStylesheet name="newChartDesign.js" library="js"/>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <h:outputScript library="js" name="gallery.js"/>
+    <h:outputScript library="js" name="checkout.js"/>
+    <h:outputScript name="primefaces.js" library="primefaces"/>
+    <h:outputStylesheet name="primefaces.css" library="primefaces"/>
+    <h:outputScript name="charts/charts.js" library="primefaces"/>
+    <h:outputStylesheet name="charts/charts.css" library="primefaces"/>
+</h:head>
+<h:body>
+    <div id="container">
+        <div id="loginDiv">
+            <ui:fragment rendered="#{empty loginHelper.user}">
+                <h:link styleClass="reg" value="Register" outcome="register"/>
+                <h:form id="loginForm">
+
+
+                    <p:inputText id="name" value="#{loginHelper.userName}" placeholder="Username" required="true"/>
+                    <p:password id="pass" value="#{loginHelper.password}" placeholder="Password" styleClass="pass"
+                                required="true"/>
+                    <p:commandButton id="login" value="Login" styleClass="ui-priority-primary styled-button-8"
+                                     validateClient="true"
+                                     actionListener="#{loginHelper.login()}"/>
+
+
+                </h:form>
+            </ui:fragment>
+            <h:form id="logoutForm">
+                <ui:fragment rendered="#{not empty loginHelper.user}">
+                    <p:commandButton id="logout" value="Logout" styleClass="ui-priority-primary styled-button-8"
+                                     validateClient="true"
+                                     actionListener="#{loginHelper.logout()}"/>
+                </ui:fragment>
+            </h:form>
+        </div>
+        <div id="header">
+            <div id="logo">
+                <span class="logo">Software</span><span class="text">Market</span>
+            </div>
+            <div class="addCartHeader">
+                    <h:outputLink title="Show my cart" styleClass="cart"
+                                  value="cart.xhtml?faces-redirect=true" >
+                        <div class="icon-cart bigCart">
+                            <div class="cart-line-1"></div>
+                            <div class="cart-line-2"></div>
+                            <div class="cart-line-3"></div>
+                            <div class="cart-wheel"></div>
+                        </div>
+                </h:outputLink>
+                    <h:outputText name="cartSize" id="cartSize" styleClass="cartSize" value="#{cart.cartCount}"/>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div id="navigation">
+            <ul>
+                <li>
+                    <h:link styleClass="link" value="Index" outcome="index"/>
+                </li>
+                <li>
+                    <h:link styleClass="link" value="Products" outcome="products"/>
+                </li>
+                <li>
+                    <h:link styleClass="link" value="About" outcome="about"/>
+                </li>
+                <li>
+                    <h:link styleClass="link" value="Contact" outcome="contact"/>
+                </li>
+            </ul>
+        </div>
+        <div id="slideshow">
+            <div>
+                <h:graphicImage styleClass="sizeGallery" library="images" name="1.jpg"/>
+                <h1>Adobe</h1>
+                <h1 class="numberTwoH">Photoshop CS6</h1>
+                <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip.</p>
+            </div>
+            <div>
+                <h:graphicImage styleClass="sizeGallery" library="images" name="2.jpg"/>
+                <h1>Windows</h1>
+                <h1 class="numberTwoH">8 Pro</h1>
+                <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip.</p>
+            </div>
+            <div>
+                <h:graphicImage styleClass="sizeGallery" library="images" name="3.jpg"/>
+                <h1>Adobe</h1>
+                <h1 class="numberTwoH">inDesign CC</h1>
+                <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip.</p>
+            </div>
+        </div>
+
+        <div id="content">
+            <ui:insert name="content">
+                []
+            </ui:insert>
+
+        </div>
+    </div>
+
+</h:body>
+</html>

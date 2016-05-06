@@ -14,7 +14,7 @@ public abstract class OrderProductEntity_ {
 	public static volatile SingularAttribute<OrderProductEntity, Double> totalPrice;
 	public static volatile SingularAttribute<OrderProductEntity, Date> orderDate;
 	public static volatile SingularAttribute<OrderProductEntity, String> productsName;
-	public static volatile SingularAttribute<OrderProductEntity, Enum> status;
+	public static volatile SingularAttribute<OrderProductEntity, String> status;
 
 }
 
