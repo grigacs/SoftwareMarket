@@ -16,8 +16,11 @@ public class FamousProductsEntity implements Serializable {
     private int orderId;
     private int saledCount;
 
-    public FamousProductsEntity(int saledCount) {
+    public FamousProductsEntity(int saledCount, int productId, int orderId) {
+
         this.saledCount = saledCount;
+        this.productId = productId;
+        this.orderId = orderId;
     }
 
     public FamousProductsEntity() {
@@ -34,6 +37,7 @@ public class FamousProductsEntity implements Serializable {
 
     @Id
     @Column(name = "famous_products_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getFamousProductsId() {
         return famousProductsId;
     }

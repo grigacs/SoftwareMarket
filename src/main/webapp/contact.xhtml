@@ -1,11 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
-</html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                template="templates/defaultSome.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+
+    <ui:define name="content">
+        <div id="content">
+            <div id="contact">
+                <div>
+                    <h1>CONTACT</h1>
+                </div>
+            </div>
+            <div class="clear">
+
+            </div>
+            <div id="contactM">
+                <div class="mob">
+                    <div class="ico">
+                        <h:graphicImage value="resources/images/mob.png"/>
+                    </div>
+                    <div class="ico">
+                        <h:graphicImage value="resources/images/mail-icon.png"/>
+                    </div>
+                    <div class="ico">
+                        <h:graphicImage value="resources/images/loc.png"/>
+                    </div>
+                </div>
+                <div class="clear">
+
+                </div>
+                <div class="mob2 mob">
+                    <div class="ico te phone">
+                        <p>+381 678 67 321</p>
+                        <p>+381 674 67 2121</p>
+                    </div>
+
+                    <div class="ico te mail">
+                        <p>softwareMarket@gmail.com</p>
+                    </div>
+                    <div class="ico te home">
+                        <p>New York city st. 32/6b</p>
+                    </div>
+                </div>
+            </div>
+            <section class="map1">
+                <iframe class="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" width="100%"
+                        height="300"
+                        src="https://maps.google.com/maps?hl=en&amp;q=Subotica Serbia Nikole Demonje 8&amp;ie=UTF8&amp;t=m&amp;z=16&amp;iwloc=B&amp;output=embed">
+                    <div>
+                        <small>
+                            <a href="http://embedgooglemaps.com">
+                                embed google map
+                            </a>
+                        </small>
+                    </div>
+                    <div>
+                        <small>
+                            <a href="http://googlemapsgenerator.com/">
+                                Google maps generator
+                            </a>
+                        </small>
+                    </div>
+                </iframe>
+            </section>
+        </div>
+    </ui:define>
+</ui:composition>

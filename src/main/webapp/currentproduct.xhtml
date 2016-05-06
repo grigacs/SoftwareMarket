@@ -1,0 +1,60 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jsp/jstl/core"
+                template="templates/default.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+
+    <f:metadata>
+        <c:set var="id" value="#{request.getParameter('id')}"/>
+        <f:event type="preRenderView" listener="#{productList.setCurrentProduct(id)}"/>
+    </f:metadata>
+
+    <ui:define name="content">
+        <c:set var="currentProduct" value="#{productList.getCurrentProduct()}" />
+            <div class="wrapCurrent">
+                <div class="picturesCurrent">
+                    <h:graphicImage styleClass="pictureC"
+                                    value="resources/ProductPictures/#{currentProduct.productPicture}"/>
+                </div>
+                <div class="description">
+                    <div class="header">
+                        <div class="nameCurrent">
+                            <h:outputText value="#{currentProduct.productName}"/>
+                        </div>
+                        <div class="versionCurrent">
+                            <span>version: </span><h:outputText value="#{currentProduct.productVersion}"/>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="descriptionCurrent">
+                        <h:outputText value="#{currentProduct.productDescription}"/>
+                    </div>
+                    <div class="PriceCurrent">
+                        <span>$</span><h:outputText value="#{currentProduct.productPrice}"/>
+                    </div>
+                    <div class="addCartCurrent">
+                        <h:form id="addItem">
+                            <div class="alignButon">
+
+                                <h:commandLink styleClass="addCartC" action="#{cart.addtoCart(currentProduct)}">
+                                    <f:param name="id" value="#{currentProduct.productId}"/>
+                                    <h:inputText value="#{currentProduct.productName}" />
+
+                                    <div class="icon-cart cart-left">
+                                        <div class="cart-line-1"></div>
+                                        <div class="cart-line-2"></div>
+                                        <div class="cart-line-3"></div>
+                                        <div class="cart-wheel"></div>
+                                    </div>
+                                    <h:outputText styleClass="add" value="ADD TO CART"/>
+                                </h:commandLink>
+                            </div>
+                        </h:form>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+    </ui:define>
+</ui:composition>

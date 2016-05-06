@@ -17,14 +17,17 @@ public class OrderProductEntity implements Serializable {
     private Date orderDate;
     private double totalPrice;
     private String productsName;
-    private Enum status;
+    private String status;
 
-    public OrderProductEntity(Date orderDate, double totalPrice, String productsName, Enum status) {
+    public OrderProductEntity(int idUser, Date orderDate, double totalPrice, String productsName, String status) {
         this.orderDate = orderDate;
         this.totalPrice = totalPrice;
         this.productsName = productsName;
         this.status = status;
+        this.idUser = idUser;
     }
+
+
 
     public OrderProductEntity() {
     }
@@ -33,8 +36,10 @@ public class OrderProductEntity implements Serializable {
     @JoinColumn(name = "id_user")
     private UsersEntity users;
 
+
     @Id
     @Column(name = "order_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getOrderId() {
         return orderId;
     }
@@ -85,11 +90,11 @@ public class OrderProductEntity implements Serializable {
 
     @Basic
     @Column(name = "status")
-    public Enum getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Enum status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -107,6 +112,7 @@ public class OrderProductEntity implements Serializable {
         if (productsName != null ? !productsName.equals(that.productsName) : that.productsName != null) return false;
         if (status != null ? !status.equals(that.status) : that.status != null) return false;
 
+
         return true;
     }
 
@@ -123,4 +129,6 @@ public class OrderProductEntity implements Serializable {
         result = 31 * result + (status != null ? status.hashCode() : 0);
         return result;
     }
+
+
 }
